@@ -1,1 +1,2 @@
-i have no idea what im doing
+# Banking-Management-System
+2025-2026 Proje Ödevi
