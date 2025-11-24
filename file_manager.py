@@ -53,7 +53,6 @@ return users, transactions
 
 
 def save_data(users_path: str, transactions_path: str, users: dict, transactions: list) -> None:
-# persist and create a backup snapshot
 with open(users_path, "w") as f:
 json.dump(users, f, indent=2, default=str)
 
@@ -78,3 +77,4 @@ if not os.path.exists(p):
 continue
 base = os.path.basename(p)
 return True
+
