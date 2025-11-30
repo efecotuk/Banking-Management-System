@@ -18,13 +18,13 @@ os.makedirs(BACKUP_DIR, exist_ok=True)
 
 
 if not os.path.exists(USERS_FILE):
-with open(USERS_FILE, "w") as f:
-json.dump({}, f)
+ with open(USERS_FILE, "w") as f:
+  json.dump({}, f)
 
 
 if not os.path.exists(TXNS_FILE):
-with open(TXNS_FILE, "w") as f:
-json.dump([], f)
+ with open(TXNS_FILE, "w") as f:
+  json.dump([], f)
 
 
 return {"users_path": USERS_FILE, "transactions_path": TXNS_FILE}
@@ -34,18 +34,17 @@ return {"users_path": USERS_FILE, "transactions_path": TXNS_FILE}
 
 def load_data(users_path: str = USERS_FILE, transactions_path: str = TXNS_FILE) -> Tuple[dict, list]:
 try:
-with open(users_path, "r") as f:
-users = json.load(f)
-except Exception:
-users = {}
+ with open(users_path, "r") as f:
+  users = json.load(f)
+ except Exception:
+  users = {}
 
 
 try:
-with open(transactions_path, "r") as f:
-transactions = json.load(f)
-except Exception:
-transactions = []
-
+ with open(transactions_path, "r") as f:
+  transactions = json.load(f)
+ except Exception:
+  transactions = []
 
 return users, transactions
 
@@ -53,12 +52,12 @@ return users, transactions
 
 
 def save_data(users_path: str, transactions_path: str, users: dict, transactions: list) -> None:
-with open(users_path, "w") as f:
-json.dump(users, f, indent=2, default=str)
+ with open(users_path, "w") as f:
+ json.dump(users, f, indent=2, default=str)
 
 
-with open(transactions_path, "w") as f:
-json.dump(transactions, f, indent=2, default=str)
+ with open(transactions_path, "w") as f:
+ json.dump(transactions, f, indent=2, default=str)
 
 
 backup_data([users_path, transactions_path], BACKUP_DIR)
@@ -73,8 +72,9 @@ created = []
 
 
 for p in source_paths:
-if not os.path.exists(p):
-continue
-base = os.path.basename(p)
-return True
+ if not os.path.exists(p):
+  continue
+  base = os.path.basename(p)
+ return True
+
 
