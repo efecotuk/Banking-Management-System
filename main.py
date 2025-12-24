@@ -6,6 +6,7 @@ from bank_operations import (
     transfer_funds,
     check_balance
 )
+from report import view_transaction_history
 
 USERS_FILE = "data/users.json"
 
@@ -13,53 +14,55 @@ USERS_FILE = "data/users.json"
 def user_menu(users, current_user):
     while True:
         print(f"\nWelcome, {current_user['username']}")
-        print("1. Check Your Balance")
+        print("1. Check Balance")
         print("2. Deposit")
         print("3. Withdraw")
-        print("4. Money Transfer")
-        print("5. Log out")
+        print("4. Transfer")
+        print("5. View Transactions")
+        print("6. Logout")
 
         choice = input("Choose: ")
 
         try:
             if choice == "1":
-                print("Your Balance:", check_balance(current_user))
+                print("Balance:", check_balance(current_user))
 
             elif choice == "2":
                 amount = float(input("Amount to deposit: "))
                 deposit_money(current_user, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Deposit is successful")
+                print("Deposit successful")
 
             elif choice == "3":
                 amount = float(input("Amount to withdraw: "))
                 withdraw_money(current_user, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Withdrawal is successful")
+                print("Withdrawal successful")
 
             elif choice == "4":
                 receiver = input("Send to username: ")
                 amount = float(input("Amount to transfer: "))
                 transfer_funds(users, current_user["username"], receiver, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Transfer is successful")
-
+                print("Transfer successful")
 
             elif choice == "5":
-              transactions = view_transaction_history(current_user)
+                transactions = view_transaction_history(current_user)
 
-              if not transactions:
-                print("No transactions yet.")
-              else:
-                print("\n--- Transaction History ---")
-                for t in transactions:
-                  print (f"{t['timestamp']} | {t['type']} | " f"Amount: {t['amount']} | Balance: {t['balance_after']} ")
-
+                if not transactions:
+                    print("No transactions yet.")
+                else:
+                    print("\n--- Transaction History ---")
+                    for t in transactions:
+                        print(
+                            f"{t['timestamp']} | {t['type']} | "
+                            f"Amount: {t['amount']} | Balance: {t['balance_after']}"
+                        )
 
             elif choice == "6":
                 print("Logged out")
                 break
-       
+
             else:
                 print("Invalid choice")
 
@@ -71,9 +74,9 @@ def main():
     users = load_users_from_file(USERS_FILE)
 
     while True:
-        print("\n*** Banking System ***")
+        print("\n=== Banking System ===")
         print("1. Register")
-        print("2. Log in")
+        print("2. Login")
         print("3. Exit")
 
         choice = input("Choose: ")
@@ -100,7 +103,7 @@ def main():
 
         elif choice == "3":
             save_users_to_file(USERS_FILE, users)
-            print("Goodbye Gng")
+            print("Goodbye")
             break
 
         else:
@@ -109,6 +112,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
