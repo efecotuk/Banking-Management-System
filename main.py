@@ -13,36 +13,36 @@ USERS_FILE = "data/users.json"
 def user_menu(users, current_user):
     while True:
         print(f"\nWelcome, {current_user['username']}")
-        print("1. Check Balance")
+        print("1. Check Your Balance")
         print("2. Deposit")
         print("3. Withdraw")
-        print("4. Transfer")
-        print("5. Logout")
+        print("4. Money Transfer")
+        print("5. Log out")
 
         choice = input("Choose: ")
 
         try:
             if choice == "1":
-                print("Balance:", check_balance(current_user))
+                print("Your Balance:", check_balance(current_user))
 
             elif choice == "2":
                 amount = float(input("Amount to deposit: "))
                 deposit_money(current_user, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Deposit successful")
+                print("Deposit is successful")
 
             elif choice == "3":
                 amount = float(input("Amount to withdraw: "))
                 withdraw_money(current_user, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Withdrawal successful")
+                print("Withdrawal is successful")
 
             elif choice == "4":
                 receiver = input("Send to username: ")
                 amount = float(input("Amount to transfer: "))
                 transfer_funds(users, current_user["username"], receiver, amount)
                 save_users_to_file(USERS_FILE, users)
-                print("Transfer successful")
+                print("Transfer is successful")
 
             elif choice == "5":
                 print("Logged out")
@@ -59,9 +59,9 @@ def main():
     users = load_users_from_file(USERS_FILE)
 
     while True:
-        print("\n=== Banking System ===")
+        print("\n*** Banking System ***")
         print("1. Register")
-        print("2. Login")
+        print("2. Log in")
         print("3. Exit")
 
         choice = input("Choose: ")
@@ -88,7 +88,7 @@ def main():
 
         elif choice == "3":
             save_users_to_file(USERS_FILE, users)
-            print("Goodbye")
+            print("Goodbye Gng")
             break
 
         else:
@@ -97,4 +97,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
