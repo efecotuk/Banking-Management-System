@@ -4,6 +4,8 @@ import uuid
 
 MIN_BALANCE = Decimal("0.00")
 
+
+
 def _round(amount):
     return Decimal(amount).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
@@ -16,6 +18,9 @@ def _new_transaction(txn_type, amount, balance_after, channel):
         "channel": channel,
         "timestamp": datetime.now().isoformat()
     }
+
+
+
 
 def deposit_money(user, amount, channel="branch"):
     amount = _round(amount)
@@ -31,6 +36,10 @@ def deposit_money(user, amount, channel="branch"):
     user["transactions"].append(txn)
 
     return user
+
+
+
+
 
 def withdraw_money(user, amount, channel="branch"):
     amount = _round(amount)
@@ -50,6 +59,9 @@ def withdraw_money(user, amount, channel="branch"):
     user["transactions"].append(txn)
 
     return user
+
+
+
 
 def transfer_funds(users, sender_username, receiver_username, amount):
     if sender_username not in users:
@@ -85,26 +97,12 @@ def transfer_funds(users, sender_username, receiver_username, amount):
 
     return sender, receiver
 
+
+
+
 def check_balance(user):
     return float(_round(user["balance"]))
 
 
-def calculate_monthly_fees(user, fee_schedule):
-    total_fee = Decimal("0.00")
 
-    for fee in fee_schedule.values():
-        total_fee += _round(fee)
-
-    balance = _round(user["balance"])
-    if balance - total_fee < MIN_BALANCE:
-        raise ValueError("Fees exceed balance")
-
-    balance -= total_fee
-    user["balance"] = float(balance)
-
-    user["transactions"].append(
-        _new_transaction("fees", total_fee, balance, "system")
-    )
-
-    return user
 
