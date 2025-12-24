@@ -44,10 +44,22 @@ def user_menu(users, current_user):
                 save_users_to_file(USERS_FILE, users)
                 print("Transfer is successful")
 
+
             elif choice == "5":
+              transactions = view_transaction_history(current_user)
+
+              if not transactions:
+                print("No transactions yet.")
+              else:
+                print("\n--- Transaction History ---")
+                for t in transactions:
+                  print (f"{t['timestamp']} | {t['type']} | " f"Amount: {t['amount']} | Balance: {t['balance_after']} ")
+
+
+            elif choice == "6":
                 print("Logged out")
                 break
-
+       
             else:
                 print("Invalid choice")
 
@@ -97,5 +109,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
