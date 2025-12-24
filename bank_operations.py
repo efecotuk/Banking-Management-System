@@ -88,17 +88,6 @@ def transfer_funds(users, sender_username, receiver_username, amount):
 def check_balance(user):
     return float(_round(user["balance"]))
 
-def apply_interest(user, rate=0.015):
-    balance = _round(user["balance"])
-    interest = _round(balance * Decimal(rate))
-    balance += interest
-    user["balance"] = float(balance)
-
-    user["transactions"].append(
-        _new_transaction("interest", interest, balance, "system")
-    )
-
-    return user
 
 def calculate_monthly_fees(user, fee_schedule):
     total_fee = Decimal("0.00")
@@ -118,3 +107,4 @@ def calculate_monthly_fees(user, fee_schedule):
     )
 
     return user
+
