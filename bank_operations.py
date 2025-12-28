@@ -81,14 +81,14 @@ def transfer_funds(users, sender_username, receiver_username, amount):
     if sender_balance - amount < MIN_BALANCE:
         raise ValueError("Insufficient funds")
 
-    # Debit sender
+    
     sender_balance -= amount
     sender["balance"] = float(sender_balance)
     sender["transactions"].append(
         _new_transaction("transfer_out", amount, sender_balance, "transfer")
     )
 
-    # Credit receiver
+    
     receiver_balance = _round(receiver["balance"]) + amount
     receiver["balance"] = float(receiver_balance)
     receiver["transactions"].append(
@@ -102,6 +102,7 @@ def transfer_funds(users, sender_username, receiver_username, amount):
 
 def check_balance(user):
     return float(_round(user["balance"]))
+
 
 
 
