@@ -14,7 +14,6 @@ def register_user(users, username, password):
         "transactions": [],
         "failed_attempts": 0,
         "locked": False
-        "is_admin": False
     }
     return users[username]
 
@@ -35,4 +34,5 @@ def login_user(users, username, password):
         if user["failed_attempts"] >= 3:
             user["locked"] = True
         return None
+
 
