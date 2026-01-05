@@ -19,4 +19,4 @@ def test_withdraw_money():
     withdraw_money(user, 40)
     assert user["balance"] == 60.0
 
-#Basic tests
+# Basic tests, nothing to see here....
