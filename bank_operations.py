@@ -95,7 +95,7 @@ def transfer_funds(users, sender_username, receiver_username, amount):
     )
 
     return sender, receiver
-# Helps you give money to your broke ahh friends. 
+# Helps you give money to your friends. It does check if they exist or not, so make sure you're not schizophrenic.
 
 
 
@@ -103,6 +103,7 @@ def check_balance(user):
     return float(_round(user["balance"]))
 
 # Shows you how much money you be stacking.
+
 
 
 
