@@ -3,16 +3,12 @@ import csv
 from datetime import datetime
 
 def view_transaction_history(user, limit=10):
-    """
-    Return the most recent transactions (default last 10)
-    """
+
     return user.get("transactions", [])[-limit:]
 # Returns the last 10 transactions the user has made.
 
 def export_transaction_history(user, directory="exports"):
-    """
-    Export a user's transactions to a CSV file
-    """
+
     if not os.path.exists(directory):
         os.makedirs(directory)
 
@@ -34,9 +30,7 @@ def export_transaction_history(user, directory="exports"):
 # I'm not even sure this works.
 
 def generate_summary_report(users):
-    """
-    Return analytics summary for all users
-    """
+    
     total_deposits = 0
     total_withdrawals = 0
     transaction_count = 0
@@ -64,21 +58,18 @@ def generate_summary_report(users):
 # Made this for the admin panel, but couldn't really get around to doing that. So this function is just sitting there lmao
 
 def total_bank_balance(users):
-    """
-    Return total balance held by the bank
-    """
+    
     return round(sum(user.get("balance", 0) for user in users.values()), 2)
     
 # Unused Admin panel code.
 
 def list_high_value_customers(users, threshold):
-    """
-    Return usernames with balances >= threshold
-    """
+   
     return [
         user["username"]
         for user in users.values()
         if user.get("balance", 0) >= threshold
     ]
 # Another unused admin panel code, nothing to see here.
+
 
