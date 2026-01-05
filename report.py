@@ -27,7 +27,7 @@ def export_transaction_history(user, directory="exports"):
 
     return path
 
-# I'm not even sure this works.
+# It's supposed to export all user's transaction history to a file but im not even sure it works lol.
 
 def generate_summary_report(users):
     
@@ -71,5 +71,6 @@ def list_high_value_customers(users, threshold):
         if user.get("balance", 0) >= threshold
     ]
 # Another unused admin panel code, nothing to see here.
+
 
 
