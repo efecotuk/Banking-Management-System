@@ -31,6 +31,7 @@ def export_transaction_history(user, directory="exports"):
 
     return path
 
+# I'm not even sure this works.
 
 def generate_summary_report(users):
     """
@@ -59,14 +60,16 @@ def generate_summary_report(users):
         "average_transaction": round(avg_transaction, 2),
         "transaction_count": transaction_count
     }
-
+    
+# Made this for the admin panel, but couldn't really get around to doing that. So this function is just sitting there lmao
 
 def total_bank_balance(users):
     """
     Return total balance held by the bank
     """
     return round(sum(user.get("balance", 0) for user in users.values()), 2)
-
+    
+# Unused Admin panel code.
 
 def list_high_value_customers(users, threshold):
     """
@@ -77,3 +80,4 @@ def list_high_value_customers(users, threshold):
         for user in users.values()
         if user.get("balance", 0) >= threshold
     ]
+# Another unused admin panel code, nothing to see here.
