@@ -18,11 +18,10 @@ def _new_transaction(txn_type, amount, balance_after, channel):
         "channel": channel,
         "timestamp": datetime.now().isoformat()
     }
+# Helps keeping track of the transactions.
 
 
-
-
-def deposit_money(user, amount, channel="branch"):
+def deposit_money(user, amount, channel="branch"): 
     amount = _round(amount)
 
     if amount <= 0:
@@ -36,7 +35,7 @@ def deposit_money(user, amount, channel="branch"):
     user["transactions"].append(txn)
 
     return user
-
+# Magically makes money out of thin air and deposits it to your account.
 
 
 
@@ -59,7 +58,7 @@ def withdraw_money(user, amount, channel="branch"):
     user["transactions"].append(txn)
 
     return user
-
+# Makes a withdrawal.
 
 
 
@@ -96,12 +95,15 @@ def transfer_funds(users, sender_username, receiver_username, amount):
     )
 
     return sender, receiver
-
+# Helps you give money to your broke ahh friends. 
 
 
 
 def check_balance(user):
     return float(_round(user["balance"]))
+
+# Shows you how much money you be stacking.
+
 
 
 
