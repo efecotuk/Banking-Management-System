@@ -16,6 +16,7 @@ def register_user(users, username, password):
         "locked": False
     }
     return users[username]
+# Creates a new user. 
 
 def login_user(users, username, password):
     if username not in users:
@@ -35,4 +36,5 @@ def login_user(users, username, password):
             user["locked"] = True
         return None
 
+# The login mechanism for users.
 
