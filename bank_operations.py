@@ -58,7 +58,7 @@ def withdraw_money(user, amount, channel="branch"):
     user["transactions"].append(txn)
 
     return user
-# Makes a withdrawal.
+# Makes a withdrawal. What else would it do??
 
 
 
@@ -103,6 +103,7 @@ def check_balance(user):
     return float(_round(user["balance"]))
 
 # Shows you how much money you be stacking.
+
 
 
 
