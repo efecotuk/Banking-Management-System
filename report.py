@@ -7,7 +7,7 @@ def view_transaction_history(user, limit=10):
     Return the most recent transactions (default last 10)
     """
     return user.get("transactions", [])[-limit:]
-
+# Returns the last 10 transactions the user has made.
 
 def export_transaction_history(user, directory="exports"):
     """
@@ -81,3 +81,4 @@ def list_high_value_customers(users, threshold):
         if user.get("balance", 0) >= threshold
     ]
 # Another unused admin panel code, nothing to see here.
+
