@@ -2,7 +2,7 @@ import hashlib
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest() 
-# Returs passwords (strings) into.... bytes?? WHAT? I actually have no idea how..
+# Returs passwords (strings) into.... bytes?? 
 
 def register_user(users, username, password):
     if username in users:
@@ -38,5 +38,6 @@ def login_user(users, username, password):
         return None
 
 # The login mechanism for users. Checks your name and password basically (if its true or even exists)
+
 
 
