@@ -12,6 +12,7 @@ def save_users_to_file(path, users):
     with open(path, "w") as f:
         json.dump(users, f, indent=4)
 # Writes the current users dictionary to a JSON file. 
-# (I hate JSON files so much..)
+
+
 
 
