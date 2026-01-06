@@ -1,6 +1,6 @@
-import os
-import csv
-from datetime import datetime
+import os # Lets Python interact with the operating system. "Does this file exist on the computer?”
+import csv # Allows Python to read and write CSV files (comma-separated values).
+from datetime import datetime # Gives you access to the current date and time.
 
 def view_transaction_history(user, limit=10):
 
@@ -71,6 +71,7 @@ def list_high_value_customers(users, threshold):
         if user.get("balance", 0) >= threshold
     ]
 # Another unused admin panel code, 
+
 
 
 
