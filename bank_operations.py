@@ -1,6 +1,6 @@
-from datetime import datetime
-from decimal import Decimal, ROUND_HALF_UP
-import uuid
+from datetime import datetime # Access to date and time
+from decimal import Decimal, ROUND_HALF_UP #Prevents weird rounding errors in pyhton.
+import uuid # Generates unique ID'S
 
 MIN_BALANCE = Decimal("0.00")
 
@@ -103,6 +103,7 @@ def check_balance(user):
     return float(_round(user["balance"]))
 
 # Shows you how much money you be stacking.
+
 
 
 
